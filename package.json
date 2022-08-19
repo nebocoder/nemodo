@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.1",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,5 +23,10 @@
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
     "vite": "^3.0.7"
+  },
+  "overrides": {
+    "@formkit/auto-animate": {
+      "react": "$react"
+    }
   }
 }
