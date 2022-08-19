@@ -19,11 +19,7 @@ function List() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <Task />
-        <Task />
-        <Task />
-      </div>
+      <div className="flex flex-col gap-3"></div>
     </div>
   );
 }
