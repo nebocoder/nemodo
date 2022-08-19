@@ -23,7 +23,7 @@ function Header({ onAddTask }) {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="absolute h-14 -bottom-[1.75em] w-full max-w-3xl flex px-4"
+        className="absolute h-14 -bottom-[1.75em] w-full max-w-3xl min-w-fit flex px-4"
       >
         <input
           value={title}
@@ -34,7 +34,7 @@ function Header({ onAddTask }) {
           placeholder="Add a new task..."
         />
         <button className="h-full px-4 border-2 bg-slate-100 text-slate-800 border-slate-800 font-bold flex place-items-center gap-2">
-          Add
+          {/* Add */}
           <AiOutlinePlus size={22} />
         </button>
       </form>
