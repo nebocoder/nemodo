@@ -53,7 +53,7 @@ function Task({ task, onComplete, onRemove }) {
         className={
           task.isComplete
             ? 'mr-auto line-through text-slate-500'
-            : 'font-semibold mr-auto'
+            : 'font-medium mr-auto'
         }
       >
         {task.title}

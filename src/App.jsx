@@ -36,7 +36,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen bg-slate-100 text-slate-800">
+    <div className="h-screen bg-slate-100 text-slate-800 font-inter">
       <Header onAddTask={addTask} />
       <List
         tasks={tasks}
