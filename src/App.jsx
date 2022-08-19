@@ -1,13 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import Header from './Header';
 import List from './List';
 
+const LOCAL_STORAGE_KEY = 'nemodo:savedTasks';
+
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  function loadSavedTasks() {
+    const savedTasks = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedTasks) setTasks(JSON.parse(savedTasks));
+  }
+
+  useEffect(() => {
+    loadSavedTasks();
+  }, []);
+
+  function setTasksAndSave(newTasks) {
+    setTasks(newTasks);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
+  }
+
   function addTask(taskTitle) {
-    setTasks([
+    setTasksAndSave([
       ...tasks,
       {
         id: nanoid(),
@@ -27,12 +43,12 @@ function App() {
       }
       return task;
     });
-    setTasks(newTasks);
+    setTasksAndSave(newTasks);
   }
 
   function removeById(taskId) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(newTasks);
+    setTasksAndSave(newTasks);
   }
 
   return (
