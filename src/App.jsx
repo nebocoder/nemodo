@@ -1,5 +1,11 @@
+import Header from './Header';
+
 function App() {
-  return <div>App</div>;
+  return (
+    <div className="h-screen bg-slate-100 text-slate-800">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
