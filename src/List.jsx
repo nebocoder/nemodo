@@ -13,13 +13,13 @@ function List({ tasks, onComplete, onRemove }) {
       <div className="flex place-items-center place-content-between mb-6">
         <div className="flex place-items-center gap-2">
           <p className="text-sm font-bold">Created</p>
-          <span className="text-xs font-bold bg-slate-800 text-slate-100 px-2 py-1">
+          <span className="text-xs font-bold bg-primary text-secondary px-2 py-1">
             {taskQuantity}
           </span>
         </div>
         <div className="flex place-items-center gap-2">
           <p className="text-sm font-bold">Completed</p>
-          <span className="text-xs font-bold bg-slate-800 text-slate-100 px-2 py-1">
+          <span className="text-xs font-bold bg-primary text-secondary px-2 py-1">
             {completedTasks} of {taskQuantity}
           </span>
         </div>
@@ -41,7 +41,7 @@ function List({ tasks, onComplete, onRemove }) {
 
 function Task({ task, onComplete, onRemove }) {
   return (
-    <div className="w-full border-2 border-slate-800 p-4 flex place-items-center justify-between gap-3">
+    <div className="w-full border-2 border-primary bg-primary text-secondary p-4 flex place-items-center justify-between gap-3">
       <button
         onClick={() => onComplete(task.id)}
         className="w-5 h-5 flex place-content-center place-items-center"
@@ -49,7 +49,7 @@ function Task({ task, onComplete, onRemove }) {
         {task.isComplete ? (
           <AiFillCheckSquare size={20} />
         ) : (
-          <div className="w-full h-full border-2 border-slate-800" />
+          <div className="w-full h-full border-2 border-secondary" />
         )}
       </button>
       <p
