@@ -29,7 +29,7 @@ function Header({ onAddTask }) {
           value={title}
           onChange={onChangeTitle}
           className="h-full flex-1 text-inherit border-y-2 border-l-2 bg-inherit border-slate-800 px-4
-          focus:outline-none placeholder:text-slate-400"
+          focus:outline-none placeholder:text-slate-500"
           type="text"
           placeholder="Add a new task..."
         />

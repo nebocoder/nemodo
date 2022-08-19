@@ -17,10 +17,23 @@ function App() {
     ]);
   }
 
+  function toggleCompleteById(taskId) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isComplete: !task.isComplete,
+        };
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  }
+
   return (
     <div className="h-screen bg-slate-100 text-slate-800">
       <Header onAddTask={addTask} />
-      <List tasks={tasks} />
+      <List tasks={tasks} onComplete={toggleCompleteById} />
     </div>
   );
 }
