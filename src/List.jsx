@@ -1,7 +1,7 @@
 import { GrTrash } from 'react-icons/gr';
 import { AiFillCheckSquare } from 'react-icons/ai';
 
-function List({ tasks, onComplete }) {
+function List({ tasks, onComplete, onRemove }) {
   const taskQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isComplete).length;
 
@@ -24,14 +24,19 @@ function List({ tasks, onComplete }) {
 
       <div className="flex flex-col gap-3">
         {tasks.map((task) => (
-          <Task key={task.id} task={task} onComplete={onComplete} />
+          <Task
+            key={task.id}
+            task={task}
+            onComplete={onComplete}
+            onRemove={onRemove}
+          />
         ))}
       </div>
     </div>
   );
 }
 
-function Task({ task, onComplete }) {
+function Task({ task, onComplete, onRemove }) {
   return (
     <div className="w-full border-2 border-slate-800 p-4 flex place-items-center justify-between gap-3">
       <button
@@ -53,7 +58,7 @@ function Task({ task, onComplete }) {
       >
         {task.title}
       </p>
-      <button>
+      <button onClick={() => onRemove(task.id)}>
         <GrTrash size={20} />
       </button>
     </div>

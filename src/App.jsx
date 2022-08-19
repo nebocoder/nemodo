@@ -30,10 +30,19 @@ function App() {
     setTasks(newTasks);
   }
 
+  function removeById(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
+
   return (
     <div className="h-screen bg-slate-100 text-slate-800">
       <Header onAddTask={addTask} />
-      <List tasks={tasks} onComplete={toggleCompleteById} />
+      <List
+        tasks={tasks}
+        onComplete={toggleCompleteById}
+        onRemove={removeById}
+      />
     </div>
   );
 }
