@@ -51,6 +51,16 @@ function App() {
     setTasksAndSave(newTasks);
   }
 
+  function clearTasks() {
+    const newTasks = [];
+    setTasksAndSave(newTasks);
+  }
+
+  function clearCompleted() {
+    const newTasks = tasks.filter((task) => !task.isComplete);
+    setTasksAndSave(newTasks);
+  }
+
   return (
     <div className="min-h-screen bg-primary text-black font-inter overflow-x-hidden">
       <Header onAddTask={addTask} />
@@ -58,6 +68,8 @@ function App() {
         tasks={tasks}
         onComplete={toggleCompleteById}
         onRemove={removeById}
+        onClear={clearTasks}
+        onClearCompleted={clearCompleted}
       />
     </div>
   );
