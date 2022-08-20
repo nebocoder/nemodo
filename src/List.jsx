@@ -1,6 +1,6 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { GrTrash } from 'react-icons/gr';
-import { AiFillCheckSquare } from 'react-icons/ai';
+import { TbTrash } from 'react-icons/tb';
+import { AiFillCheckCircle } from 'react-icons/ai';
 
 function List({ tasks, onComplete, onRemove }) {
   const taskQuantity = tasks.length;
@@ -13,13 +13,13 @@ function List({ tasks, onComplete, onRemove }) {
       <div className="flex place-items-center place-content-between mb-6">
         <div className="flex place-items-center gap-2">
           <p className="text-sm font-bold">Created</p>
-          <span className="text-xs font-bold bg-primary text-secondary px-2 py-1">
+          <span className="text-xs font-bold bg-accent text-primary rounded-full px-2 py-1">
             {taskQuantity}
           </span>
         </div>
         <div className="flex place-items-center gap-2">
           <p className="text-sm font-bold">Completed</p>
-          <span className="text-xs font-bold bg-primary text-secondary px-2 py-1">
+          <span className="text-xs font-bold bg-accent text-primary rounded-full px-2 py-1">
             {completedTasks} of {taskQuantity}
           </span>
         </div>
@@ -40,16 +40,19 @@ function List({ tasks, onComplete, onRemove }) {
 }
 
 function Task({ task, onComplete, onRemove }) {
+  const [check] = useAutoAnimate();
+
   return (
-    <div className="w-full border-2 border-primary bg-primary text-secondary p-4 flex place-items-center justify-between gap-3 break-all">
+    <div className="w-full rounded-xl drop-shadow-xl bg-primary text-secondary p-4 flex place-items-center justify-between gap-3 break-all">
       <button
+        ref={check}
         onClick={() => onComplete(task.id)}
-        className="w-5 h-5 flex place-content-center place-items-center"
+        className="w-5 h-5 flex place-content-center place-items-center text-accent"
       >
         {task.isComplete ? (
-          <AiFillCheckSquare size={20} />
+          <AiFillCheckCircle size={20} />
         ) : (
-          <div className="w-5 h-5 border-2 border-secondary" />
+          <div className="w-5 h-5 border-2 rounded-full border-secondary" />
         )}
       </button>
       <p
@@ -61,8 +64,11 @@ function Task({ task, onComplete, onRemove }) {
       >
         {task.title}
       </p>
-      <button onClick={() => onRemove(task.id)}>
-        <GrTrash size={20} />
+      <button
+        onClick={() => onRemove(task.id)}
+        className="hover:text-red-500 transition-colors"
+      >
+        <TbTrash size={20} />
       </button>
     </div>
   );
