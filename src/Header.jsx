@@ -17,7 +17,7 @@ function Header({ onAddTask }) {
 
   return (
     <div className="flex place-content-center place-items-center h-48 relative bg-primary">
-      <div className="text-5xl font-bold flex place-items-center gap- text-secondary py-2 px-4 rounded-sm">
+      <div className="text-5xl font-bold flex place-items-center gap-2 text-secondary mb-7 py-2 px-4 rounded-sm">
         <ImCheckmark size={48} />
         nemodo
       </div>
@@ -32,6 +32,7 @@ function Header({ onAddTask }) {
           focus:outline-none placeholder:text-slate-500"
           type="text"
           placeholder="Add a new task..."
+          spellCheck="true"
         />
         <button className="h-full px-4 border-2 bg-primary text-secondary border-secondary font-bold flex place-items-center gap-2">
           {/* Add */}

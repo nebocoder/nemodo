@@ -41,7 +41,7 @@ function List({ tasks, onComplete, onRemove }) {
 
 function Task({ task, onComplete, onRemove }) {
   return (
-    <div className="w-full border-2 border-primary bg-primary text-secondary p-4 flex place-items-center justify-between gap-3">
+    <div className="w-full border-2 border-primary bg-primary text-secondary p-4 flex place-items-center justify-between gap-3 break-all">
       <button
         onClick={() => onComplete(task.id)}
         className="w-5 h-5 flex place-content-center place-items-center"
@@ -49,7 +49,7 @@ function Task({ task, onComplete, onRemove }) {
         {task.isComplete ? (
           <AiFillCheckSquare size={20} />
         ) : (
-          <div className="w-full h-full border-2 border-secondary" />
+          <div className="w-5 h-5 border-2 border-secondary" />
         )}
       </button>
       <p
