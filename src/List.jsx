@@ -25,7 +25,7 @@ function List({ tasks, onComplete, onRemove }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3" ref={parent}>
+      <div className="flex flex-col gap-4" ref={parent}>
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -43,7 +43,7 @@ function Task({ task, onComplete, onRemove }) {
   const [check] = useAutoAnimate();
 
   return (
-    <div className="w-full rounded-xl drop-shadow-xl bg-primary text-secondary p-4 flex place-items-center justify-between gap-3 break-all">
+    <div className="w-full rounded-xl drop-shadow-lg bg-primary text-secondary p-4 flex place-items-center justify-between gap-3 break-all">
       <button
         ref={check}
         onClick={() => onComplete(task.id)}
@@ -57,14 +57,15 @@ function Task({ task, onComplete, onRemove }) {
       </button>
       <p
         className={
-          task.isComplete
-            ? 'mr-auto line-through text-slate-500'
-            : 'font-medium mr-auto'
+          task.isComplete ? 'mr-auto line-through text-slate-500' : 'mr-auto'
         }
       >
         {task.title}
       </p>
-      <button onClick={() => onRemove(task.id)}>
+      <button
+        onClick={() => onRemove(task.id)}
+        className="hover:text-red-500 active:text-red-500 transition-colors"
+      >
         <TbTrash size={20} />
       </button>
     </div>
