@@ -2,7 +2,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { TbTrash } from 'react-icons/tb';
 import { AiFillCheckCircle } from 'react-icons/ai';
 
-function List({ tasks, onComplete, onRemove }) {
+function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
   const taskQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isComplete).length;
 
@@ -12,14 +12,24 @@ function List({ tasks, onComplete, onRemove }) {
     <div className="w-full max-w-3xl mx-auto mt-24 mb-12 px-4">
       <div className="flex place-items-center place-content-between mb-6">
         <div className="flex place-items-center gap-2">
-          <p className="text-sm font-bold">Created</p>
-          <span className="text-xs font-bold bg-accent text-primary rounded-full px-2 py-1">
-            {taskQuantity}
-          </span>
+          <button
+            onClick={onClearCompleted}
+            className="bg-accent text-primary font-bold drop-shadow-md px-3 py-1
+          rounded-md text-sm active:opacity-50 transition-opacity"
+          >
+            Clear Done
+          </button>
+          <button
+            onClick={onClear}
+            className="bg-red-500 text-primary font-bold drop-shadow-md px-3 py-1
+          rounded-md text-sm active:opacity-50 transition-opacity"
+          >
+            Clear All
+          </button>
         </div>
         <div className="flex place-items-center gap-2">
           <p className="text-sm font-bold">Completed</p>
-          <span className="text-xs font-bold bg-accent text-primary rounded-full px-2 py-1">
+          <span className="text-xs font-bold bg-accent text-primary rounded-full drop-shadow-md px-2 py-1">
             {completedTasks} of {taskQuantity}
           </span>
         </div>
