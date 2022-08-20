@@ -19,7 +19,7 @@ function Header({ onAddTask }) {
     <div className="flex place-content-center place-items-center h-36 relative">
       <div
         className="text-3xl font-bold flex place-items-center place-content-center 
-        gap-2 bg-accent text-primary p-6 pt-4 absolute top-0 rounded-b-2xl drop-shadow-lg"
+        gap-2 bg-accent text-primary pb-6 pt-4 px-10 absolute top-0 rounded-b-2xl drop-shadow-xl"
       >
         <BsFillCheckCircleFill size={24} />
         <p className="pb-[2px]">nemodo</p>
@@ -37,7 +37,7 @@ function Header({ onAddTask }) {
           placeholder="Add a new task..."
           spellCheck="true"
         />
-        <button className="h-full px-4 bg-primary active:opacity-50 transition-opacity transition-100 rounded-r-xl font-bold flex place-items-center gap-2 drop-shadow-xl">
+        <button className="h-full px-4 bg-primary rounded-r-xl font-bold flex place-items-center gap-2 drop-shadow-xl">
           {/* Add */}
           <GrAdd size={22} />
         </button>

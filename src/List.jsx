@@ -64,10 +64,7 @@ function Task({ task, onComplete, onRemove }) {
       >
         {task.title}
       </p>
-      <button
-        onClick={() => onRemove(task.id)}
-        className="hover:text-red-500 transition-colors"
-      >
+      <button onClick={() => onRemove(task.id)}>
         <TbTrash size={20} />
       </button>
     </div>
