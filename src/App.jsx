@@ -62,7 +62,10 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-primary text-black font-inter overflow-x-hidden">
+    <div
+      className="min-h-screen bg-primary text-black font-inter
+      overflow-x-hidden"
+    >
       <Header onAddTask={addTask} />
       <List
         tasks={tasks}
