@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
-import Dark from './Dark';
-import Header from './Header';
-import List from './List';
+import Dark from './components/Dark';
+import Header from './components/Header';
+import List from './components/List';
 
 const LOCAL_STORAGE_KEY = 'nemodo:savedTasks';
 
