@@ -15,14 +15,16 @@ function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
           <button
             onClick={onClearCompleted}
             className="bg-accent text-primary font-bold drop-shadow-md px-3
-            py-1 rounded-md text-sm active:opacity-50 transition-opacity"
+            py-1 rounded-md text-sm active:opacity-50 transition-opacity
+            dark:text-darkSecondary"
           >
             Clear Done
           </button>
           <button
             onClick={onClear}
             className="bg-red-500 text-primary font-bold drop-shadow-md px-3
-            py-1 rounded-md text-sm active:opacity-50 transition-opacity"
+            py-1 rounded-md text-sm active:opacity-50 transition-opacity
+            dark:text-darkSecondary"
           >
             Clear All
           </button>
@@ -31,7 +33,7 @@ function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
           <p className="text-sm font-bold">Completed</p>
           <span
             className="text-xs font-bold bg-accent text-primary
-            rounded-full drop-shadow-md px-2 py-1"
+            rounded-full drop-shadow-md px-2 py-1 dark:text-darkSecondary"
           >
             {completedTasks} of {taskQuantity}
           </span>
@@ -58,7 +60,8 @@ function Task({ task, onComplete, onRemove }) {
   return (
     <div
       className="w-full rounded-xl drop-shadow-lg bg-primary text-secondary
-      p-4 flex place-items-center justify-between gap-3 break-all"
+      p-4 flex place-items-center justify-between gap-3 break-all
+      dark:bg-darkPrimary dark:text-darkSecondary"
     >
       <button
         ref={check}
@@ -69,12 +72,15 @@ function Task({ task, onComplete, onRemove }) {
         {task.isComplete ? (
           <AiFillCheckCircle size={20} />
         ) : (
-          <div className="w-5 h-5 border-2 rounded-full border-secondary" />
+          <div
+            className="w-5 h-5 border-2 rounded-full border-secondary
+            dark:border-darkSecondary"
+          />
         )}
       </button>
       <p
         className={
-          task.isComplete ? 'mr-auto line-through text-slate-500' : 'mr-auto'
+          task.isComplete ? 'mr-auto line-through text-slate-400' : 'mr-auto'
         }
       >
         {task.title}
