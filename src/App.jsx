@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
+import Dark from './Dark';
 import Header from './Header';
 import List from './List';
 
@@ -64,7 +65,8 @@ function App() {
   return (
     <div
       className="min-h-screen bg-primary text-secondary font-inter
-      overflow-x-hidden dark:bg-darkPrimary dark:text-primary"
+      overflow-x-hidden dark:bg-darkPrimary dark:text-primary relative
+      transition-colors duration-500"
     >
       <Header onAddTask={addTask} />
       <List
@@ -74,6 +76,7 @@ function App() {
         onClear={clearTasks}
         onClearCompleted={clearCompleted}
       />
+      <Dark />
     </div>
   );
 }

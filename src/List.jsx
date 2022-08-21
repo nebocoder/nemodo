@@ -9,22 +9,22 @@ function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
   const [parent] = useAutoAnimate();
 
   return (
-    <div className="w-full max-w-3xl mx-auto mt-24 mb-12 px-4">
+    <div className="w-full max-w-3xl mx-auto my-20 px-4">
       <div className="flex place-items-center place-content-between mb-6">
         <div className="flex place-items-center gap-2">
           <button
             onClick={onClearCompleted}
             className="bg-accent text-primary font-bold drop-shadow-md px-3
             py-1 rounded-md text-sm active:opacity-50 transition-opacity
-            dark:text-darkSecondary"
+          dark:text-darkSecondary"
           >
             Clear Done
           </button>
           <button
             onClick={onClear}
             className="bg-red-500 text-primary font-bold drop-shadow-md px-3
-            py-1 rounded-md text-sm active:opacity-50 transition-opacity
-            dark:text-darkSecondary"
+            py-1 rounded-md text-sm active:opacity-50 transition-all
+          dark:text-darkSecondary dark:bg-red-600 duration-500"
           >
             Clear All
           </button>
@@ -61,20 +61,21 @@ function Task({ task, onComplete, onRemove }) {
     <div
       className="w-full rounded-xl drop-shadow-lg bg-primary text-secondary
       p-4 flex place-items-center justify-between gap-3 break-all
-      dark:bg-darkPrimary dark:text-darkSecondary"
+    dark:bg-darkPrimary dark:text-darkSecondary transition-colors
+      duration-500"
     >
       <button
         ref={check}
         onClick={() => onComplete(task.id)}
         className="w-5 h-5 flex place-content-center place-items-center 
-        text-accent"
+      text-accent"
       >
         {task.isComplete ? (
           <AiFillCheckCircle size={20} />
         ) : (
           <div
             className="w-5 h-5 border-2 rounded-full border-secondary
-            dark:border-darkSecondary"
+          dark:border-darkSecondary transition-colors duration-500"
           />
         )}
       </button>
@@ -87,7 +88,8 @@ function Task({ task, onComplete, onRemove }) {
       </p>
       <button
         onClick={() => onRemove(task.id)}
-        className="hover:text-red-500 active:text-red-500 transition-colors"
+        className="active:text-red-600 transition-colors
+        duration-500"
       >
         <TbTrash size={20} />
       </button>
