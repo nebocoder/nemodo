@@ -1,6 +1,6 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { TbTrash } from 'react-icons/tb';
 import { AiFillCheckCircle } from 'react-icons/ai';
+import { TbTrash } from 'react-icons/tb';
 
 function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
   const taskQuantity = tasks.length;

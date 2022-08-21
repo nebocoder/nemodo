@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { GrAdd } from 'react-icons/gr';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { GrAdd } from 'react-icons/gr';
 
 function Header({ onAddTask }) {
   const [title, setTitle] = useState('');

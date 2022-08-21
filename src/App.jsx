@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
+import { useEffect, useState } from 'react';
 import Header from './Header';
 import List from './List';
 
