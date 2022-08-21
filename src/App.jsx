@@ -1,7 +1,8 @@
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
-import Header from './Header';
-import List from './List';
+import Dark from './components/Dark';
+import Header from './components/Header';
+import List from './components/List';
 
 const LOCAL_STORAGE_KEY = 'nemodo:savedTasks';
 
@@ -63,8 +64,9 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-primary text-black font-inter
-      overflow-x-hidden"
+      className="min-h-screen bg-primary text-secondary font-inter
+      overflow-x-hidden dark:bg-darkPrimary dark:text-primary relative
+      transition-colors duration-500"
     >
       <Header onAddTask={addTask} />
       <List
@@ -74,6 +76,7 @@ function App() {
         onClear={clearTasks}
         onClearCompleted={clearCompleted}
       />
+      <Dark />
     </div>
   );
 }
