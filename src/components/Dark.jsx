@@ -1,13 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
+
+const LOCAL_STORAGE_KEY = 'nemodo:darkMode';
 
 function Dark() {
   const [darkMode, setDarkMode] = useState(false);
   const rootClasses = document.getElementById('root').classList;
 
+  function loadDarkMode() {
+    const savedDarkMode = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return JSON.parse(savedDarkMode);
+  }
+
+  useEffect(() => {
+    if (loadDarkMode()) {
+      rootClasses.add('dark');
+      setDarkMode(() => !darkMode);
+    }
+  }, []);
+
   function toggleDarkMode() {
-    setDarkMode(() => !darkMode);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(!darkMode));
     rootClasses.toggle('dark');
+    setDarkMode(() => !darkMode);
   }
 
   return (
