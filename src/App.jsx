@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
-import Dark from './components/Footer';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import List from './components/List';
 
@@ -76,7 +76,7 @@ function App() {
         onClear={clearTasks}
         onClearCompleted={clearCompleted}
       />
-      <Dark />
+      <Footer />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
 const LOCAL_STORAGE_KEY = 'nemodo:darkMode';
 
-function Dark() {
+function DarkBtn() {
   const [darkMode, setDarkMode] = useState(false);
   const rootClasses = document.getElementById('root').classList;
 
@@ -37,4 +37,13 @@ function Dark() {
     </div>
   );
 }
-export default Dark;
+
+function Footer() {
+  return (
+    <div>
+      <DarkBtn />
+    </div>
+  );
+}
+
+export default Footer;
