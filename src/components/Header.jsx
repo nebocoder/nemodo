@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { useState } from "react";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 function Header({ onAddTask }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     onAddTask(title);
-    setTitle('');
+    setTitle("");
   }
 
   function onChangeTitle(event) {

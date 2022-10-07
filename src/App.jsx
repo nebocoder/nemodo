@@ -1,10 +1,10 @@
-import { nanoid } from 'nanoid';
-import { useEffect, useState } from 'react';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import List from './components/List';
+import { nanoid } from "nanoid";
+import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import List from "./components/List";
 
-const LOCAL_STORAGE_KEY = 'nemodo:savedTasks';
+const LOCAL_STORAGE_KEY = "nemodo:savedTasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);

@@ -1,6 +1,6 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { AiFillCheckCircle } from 'react-icons/ai';
-import { TbTrash } from 'react-icons/tb';
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { TbTrash } from "react-icons/tb";
 
 function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
   const taskQuantity = tasks.length;
@@ -81,7 +81,7 @@ function Task({ task, onComplete, onRemove }) {
       </button>
       <p
         className={
-          task.isComplete ? 'mr-auto line-through text-slate-400' : 'mr-auto'
+          task.isComplete ? "mr-auto line-through text-slate-400" : "mr-auto"
         }
       >
         {task.title}

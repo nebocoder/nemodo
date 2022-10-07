@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
+import { useEffect, useState } from "react";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
-const LOCAL_STORAGE_KEY = 'nemodo:darkMode';
+const LOCAL_STORAGE_KEY = "nemodo:darkMode";
 
 function DarkBtn() {
   const [darkMode, setDarkMode] = useState(false);
-  const rootClasses = document.getElementById('root').classList;
+  const rootClasses = document.getElementById("root").classList;
 
   function loadDarkMode() {
     const savedDarkMode = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -14,14 +14,14 @@ function DarkBtn() {
 
   useEffect(() => {
     if (loadDarkMode()) {
-      rootClasses.add('dark');
+      rootClasses.add("dark");
       setDarkMode(() => !darkMode);
     }
   }, []);
 
   function toggleDarkMode() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(!darkMode));
-    rootClasses.toggle('dark');
+    rootClasses.toggle("dark");
     setDarkMode(() => !darkMode);
   }
 
