@@ -43,6 +43,18 @@ function Buttons() {
           <TbBrandGithub size={31} />
         </a>
       </button>
+      <p className="pt-2">
+        Made with ❤️ by{" "}
+        <a
+          className="text-blue-600 dark:text-blue-300 font-bold
+          transition-colors duration-500 hover:opacity-70"
+          href="https://twitter.com/nebocoder"
+          target="_blank"
+        >
+          @nebocoder
+        </a>
+        .
+      </p>
     </div>
   );
 }

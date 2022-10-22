@@ -9,7 +9,7 @@ function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
   const [parent] = useAutoAnimate();
 
   return (
-    <div className="w-full max-w-3xl mx-auto my-20 px-4">
+    <div className="w-full max-w-3xl mx-auto mt-20 mb-32 px-4">
       <div className="flex place-items-center place-content-between mb-6">
         <div className="flex place-items-center gap-2">
           <button
