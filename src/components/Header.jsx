@@ -43,8 +43,8 @@ function Header({ onAddTask }) {
         />
         <button
           className="h-full px-4 text-secondary rounded-r-xl font-bold flex
-        bg-primary place-items-center gap-1 drop-shadow-lg active:opacity-50
-        dark:text-darkSecondary dark:bg-darkPrimary transition-colors
+        bg-primary place-items-center gap-1 drop-shadow-lg active:opacity-70
+        dark:text-darkSecondary dark:bg-[#313e52] transition-colors
           duration-500"
         >
           Add

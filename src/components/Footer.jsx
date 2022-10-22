@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { TbBrandGithub } from "react-icons/tb";
 
 const LOCAL_STORAGE_KEY = "nemodo:darkMode";
 
-function DarkBtn() {
+function Buttons() {
   const [darkMode, setDarkMode] = useState(false);
   const rootClasses = document.getElementById("root").classList;
 
@@ -27,13 +28,33 @@ function DarkBtn() {
 
   return (
     <div className="w-full text-center absolute bottom-4">
-      <button onClick={toggleDarkMode} className="active:opacity-50">
+      <button
+        onClick={toggleDarkMode}
+        className="active:opacity-50 hover:opacity-75 mr-4"
+      >
         {darkMode ? (
           <MdOutlineLightMode size={32} />
         ) : (
           <MdOutlineDarkMode size={32} />
         )}
       </button>
+      <button className="active:opacity-50 hover:opacity-75">
+        <a href="https://github.com/nebocoder/nemodo" target="_blank">
+          <TbBrandGithub size={31} />
+        </a>
+      </button>
+      <p className="pt-2">
+        Made with ❤️ by{" "}
+        <a
+          className="text-blue-600 dark:text-blue-300 font-bold
+          transition-colors duration-500 hover:opacity-70"
+          href="https://twitter.com/nebocoder"
+          target="_blank"
+        >
+          @nebocoder
+        </a>
+        .
+      </p>
     </div>
   );
 }
@@ -41,7 +62,7 @@ function DarkBtn() {
 function Footer() {
   return (
     <div>
-      <DarkBtn />
+      <Buttons />
     </div>
   );
 }
