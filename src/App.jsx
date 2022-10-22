@@ -65,7 +65,7 @@ function App() {
   return (
     <div
       className="min-h-screen bg-primary text-secondary font-inter
-      overflow-x-hidden dark:bg-darkPrimary dark:text-primary relative
+      overflow-x-hidden dark:bg-darkBg dark:text-primary relative
       transition-colors duration-500"
     >
       <Header onAddTask={addTask} />
