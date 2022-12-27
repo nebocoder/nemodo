@@ -1,12 +1,27 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { TbTrash } from "react-icons/tb";
+import { iTask } from "../App";
 
-function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
+interface ListProps {
+  tasks: iTask[];
+  onComplete: (id: string) => void;
+  onRemove: (id: string) => void;
+  onClear: () => void;
+  onClearCompleted: () => void;
+}
+
+const List: React.FC<ListProps> = ({
+  tasks,
+  onComplete,
+  onRemove,
+  onClear,
+  onClearCompleted,
+}) => {
   const taskQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isComplete).length;
 
-  const [parent] = useAutoAnimate();
+  const [list] = useAutoAnimate<HTMLDivElement>();
 
   return (
     <div className="w-full max-w-3xl mx-auto mt-20 mb-32 px-4">
@@ -40,7 +55,7 @@ function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4" ref={parent}>
+      <div className="flex flex-col gap-4" ref={list}>
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -52,10 +67,16 @@ function List({ tasks, onComplete, onRemove, onClear, onClearCompleted }) {
       </div>
     </div>
   );
+};
+
+interface TaskProps {
+  task: iTask;
+  onComplete: (id: string) => void;
+  onRemove: (id: string) => void;
 }
 
-function Task({ task, onComplete, onRemove }) {
-  const [check] = useAutoAnimate();
+const Task: React.FC<TaskProps> = ({ task, onComplete, onRemove }) => {
+  const [check] = useAutoAnimate<HTMLButtonElement>();
 
   return (
     <div
@@ -95,6 +116,6 @@ function Task({ task, onComplete, onRemove }) {
       </button>
     </div>
   );
-}
+};
 
 export default List;
