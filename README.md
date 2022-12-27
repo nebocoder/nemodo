@@ -1,6 +1,6 @@
 <div align="center">
  <h1>nemodo - Simple ToDo List</h1> 
- <p>Built with React, Tilwind and Vite</p>
+ <p>Built with React, Typescript, Tailwind and Vite</p>
  <h3><a href="https://nemodo.vercel.app/">Try it here!</a><h3>
 
 ---
