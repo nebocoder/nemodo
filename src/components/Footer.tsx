@@ -4,25 +4,27 @@ import { TbBrandGithub } from "react-icons/tb";
 
 const LOCAL_STORAGE_KEY = "nemodo:darkMode";
 
-function Buttons() {
+const Buttons: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
-  const rootClasses = document.getElementById("root").classList;
+  const rootClasses = document.getElementById("root")?.classList;
 
   function loadDarkMode() {
-    const savedDarkMode = localStorage.getItem(LOCAL_STORAGE_KEY);
+    const savedDarkMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+      ? "true"
+      : "false";
     return JSON.parse(savedDarkMode);
   }
 
   useEffect(() => {
     if (loadDarkMode()) {
-      rootClasses.add("dark");
+      rootClasses?.add("dark");
       setDarkMode(() => !darkMode);
     }
   }, []);
 
   function toggleDarkMode() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(!darkMode));
-    rootClasses.toggle("dark");
+    rootClasses?.toggle("dark");
     setDarkMode(() => !darkMode);
   }
 
@@ -43,28 +45,16 @@ function Buttons() {
           <TbBrandGithub size={31} />
         </a>
       </button>
-      <p className="pt-2">
-        Made with ❤️ by{" "}
-        <a
-          className="text-blue-600 dark:text-blue-300 font-bold
-          transition-colors duration-500 hover:opacity-70"
-          href="https://twitter.com/nebocoder"
-          target="_blank"
-        >
-          @nebocoder
-        </a>
-        .
-      </p>
     </div>
   );
-}
+};
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <div>
       <Buttons />
     </div>
   );
-}
+};
 
 export default Footer;

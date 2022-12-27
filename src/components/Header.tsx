@@ -1,16 +1,20 @@
-import { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
-function Header({ onAddTask }) {
+interface HeaderProps {
+  onAddTask: (title: string) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onAddTask }) => {
   const [title, setTitle] = useState("");
 
-  function handleSubmit(event) {
+  function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
     onAddTask(title);
     setTitle("");
   }
 
-  function onChangeTitle(event) {
+  function onChangeTitle(event: { target: { value: SetStateAction<string> } }) {
     setTitle(event.target.value);
   }
 
@@ -52,6 +56,6 @@ function Header({ onAddTask }) {
       </form>
     </div>
   );
-}
+};
 
 export default Header;

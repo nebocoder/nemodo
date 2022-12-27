@@ -6,8 +6,14 @@ import List from "./components/List";
 
 const LOCAL_STORAGE_KEY = "nemodo:savedTasks";
 
-function App() {
-  const [tasks, setTasks] = useState([]);
+export interface iTask {
+  id: string;
+  title: string;
+  isComplete: boolean;
+}
+
+const App: React.FC = () => {
+  const [tasks, setTasks] = useState<iTask[]>([]);
 
   function loadSavedTasks() {
     const savedTasks = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -18,12 +24,12 @@ function App() {
     loadSavedTasks();
   }, []);
 
-  function setTasksAndSave(newTasks) {
+  function setTasksAndSave(newTasks: iTask[]) {
     setTasks(newTasks);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
   }
 
-  function addTask(taskTitle) {
+  function addTask(taskTitle: string) {
     setTasksAndSave([
       ...tasks,
       {
@@ -34,7 +40,7 @@ function App() {
     ]);
   }
 
-  function toggleCompleteById(taskId) {
+  function toggleCompleteById(taskId: string) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
         return {
@@ -47,13 +53,13 @@ function App() {
     setTasksAndSave(newTasks);
   }
 
-  function removeById(taskId) {
+  function removeById(taskId: string) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasksAndSave(newTasks);
   }
 
   function clearTasks() {
-    const newTasks = [];
+    const newTasks: iTask[] = [];
     setTasksAndSave(newTasks);
   }
 
@@ -79,6 +85,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
