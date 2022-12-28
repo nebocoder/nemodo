@@ -24,7 +24,7 @@ const List: React.FC<ListProps> = ({
   const [list] = useAutoAnimate<HTMLDivElement>();
 
   return (
-    <div className="w-full max-w-3xl mx-auto mt-20 mb-32 px-4">
+    <div className="w-full max-w-3xl mx-auto mt-12 mb-32 px-4">
       <div className="flex place-items-center place-content-between mb-6">
         <div className="flex place-items-center gap-2">
           <button
