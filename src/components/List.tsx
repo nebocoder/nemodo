@@ -81,39 +81,47 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onRemove }) => {
   return (
     <div
       className="w-full rounded-xl drop-shadow-lg bg-primary text-secondary
-      p-4 flex place-items-center justify-between gap-3 break-all
+      p-4 flex flex-col justify-between gap-3 break-all
     dark:bg-darkPrimary dark:text-darkSecondary transition-colors
       duration-500"
     >
-      <button
-        ref={check}
-        onClick={() => onComplete(task.id)}
-        className="w-5 h-5 flex place-content-center place-items-center 
-      text-accent"
-      >
-        {task.isComplete ? (
-          <AiFillCheckCircle size={20} />
-        ) : (
-          <div
-            className="w-5 h-5 border-2 rounded-full border-secondary
-          dark:border-darkSecondary transition-colors duration-500"
-          />
-        )}
-      </button>
+      <div className="flex place-items-center gap-2 pl-1">
+        <button
+          ref={check}
+          onClick={() => onComplete(task.id)}
+          className="w-5 h-5 flex place-content-center place-items-center
+        text-accent"
+        >
+          {task.isComplete ? (
+            <AiFillCheckCircle size={20} />
+          ) : (
+            <div
+              className="w-5 h-5 border-2 rounded-full border-secondary
+            dark:border-darkSecondary transition-colors duration-500"
+            />
+          )}
+        </button>
+        <p
+          className={
+            task.isComplete
+              ? "mr-auto line-through text-slate-400 text-lg font-bold"
+              : "mr-auto text-lg font-bold"
+          }
+        >
+          {task.title}
+        </p>
+      </div>
       <p
         className={
-          task.isComplete
-            ? "mr-auto line-through text-slate-400 text-lg font-bold"
-            : "mr-auto text-lg font-bold"
+          task.isComplete ? "line-through text-slate-400 pl-1" : "pl-1"
         }
       >
-        {task.title}
+        {task.body}
       </p>
-      <p>{task.body}</p>
       <button
         onClick={() => onRemove(task.id)}
-        className="active:text-red-600 transition-colors
-        duration-500"
+        className="active:text-red-600 transition-colors w-auto
+        duration-500 self-end"
       >
         <TbTrash size={20} />
       </button>
