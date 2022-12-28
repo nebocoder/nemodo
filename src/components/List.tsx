@@ -55,7 +55,7 @@ const List: React.FC<ListProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-col gap-4" ref={list}>
+      <div className="flex flex-col gap-4 md:grid md:grid-cols-2" ref={list}>
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -85,39 +85,41 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onRemove }) => {
     dark:bg-darkPrimary dark:text-darkSecondary transition-colors
       duration-500"
     >
-      <div className="flex place-items-center gap-2 pl-1">
-        <button
-          ref={check}
-          onClick={() => onComplete(task.id)}
-          className="w-5 h-5 flex place-content-center place-items-center
-        text-accent"
-        >
-          {task.isComplete ? (
-            <AiFillCheckCircle size={20} />
-          ) : (
-            <div
-              className="w-5 h-5 border-2 rounded-full border-secondary
-            dark:border-darkSecondary transition-colors duration-500"
-            />
-          )}
-        </button>
+      <div>
+        <div className="flex place-items-center gap-2 pl-1 mb-3">
+          <button
+            ref={check}
+            onClick={() => onComplete(task.id)}
+            className="w-5 h-5 flex place-content-center place-items-center
+          text-accent"
+          >
+            {task.isComplete ? (
+              <AiFillCheckCircle size={20} />
+            ) : (
+              <div
+                className="w-5 h-5 border-2 rounded-full border-secondary
+              dark:border-darkSecondary transition-colors duration-500"
+              />
+            )}
+          </button>
+          <p
+            className={
+              task.isComplete
+                ? "mr-auto line-through text-slate-400 text-lg font-bold"
+                : "mr-auto text-lg font-bold"
+            }
+          >
+            {task.title}
+          </p>
+        </div>
         <p
           className={
-            task.isComplete
-              ? "mr-auto line-through text-slate-400 text-lg font-bold"
-              : "mr-auto text-lg font-bold"
+            task.isComplete ? "line-through text-slate-400 pl-1" : "pl-1"
           }
         >
-          {task.title}
+          {task.body}
         </p>
       </div>
-      <p
-        className={
-          task.isComplete ? "line-through text-slate-400 pl-1" : "pl-1"
-        }
-      >
-        {task.body}
-      </p>
       <button
         onClick={() => onRemove(task.id)}
         className="active:text-red-600 transition-colors w-auto
