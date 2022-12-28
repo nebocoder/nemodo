@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ onAddTask }) => {
           drop-shadow-lg px-4 pt-4 focus:outline-none placeholder:text-slate-500
         dark:bg-darkPrimary dark:text-darkSecondary
           dark: placeholder-slate-200 transition-colors duration-500
-          border-t-1 mt-1 border-primary dark:border-secondary"
+          border-t-1 mt-1 border-primary dark:border-secondary resize-none"
           placeholder="Task body..."
           rows={6}
           spellCheck="true"
