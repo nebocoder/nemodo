@@ -2,20 +2,26 @@ import React, { SetStateAction, useState } from "react";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 interface HeaderProps {
-  onAddTask: (title: string) => void;
+  onAddTask: (title: string, body: string) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onAddTask }) => {
   const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
   function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
-    onAddTask(title);
+    onAddTask(title, body);
     setTitle("");
+    setBody("");
   }
 
   function onChangeTitle(event: { target: { value: SetStateAction<string> } }) {
     setTitle(event.target.value);
+  }
+
+  function onChangeBody(event: { target: { value: SetStateAction<string> } }) {
+    setBody(event.target.value);
   }
 
   return (
@@ -31,13 +37,24 @@ const Header: React.FC<HeaderProps> = ({ onAddTask }) => {
 
       <form
         onSubmit={handleSubmit}
-        className="absolute h-14 -bottom-[1.75em] w-full max-w-3xl min-w-fit
-        flex px-4"
+        className="absolute h-32 -bottom-[1.75em] w-full max-w-3xl min-w-fit
+        flex flex-col"
       >
         <input
           value={title}
           onChange={onChangeTitle}
-          className="h-full flex-1 bg-primary text-secondary rounded-l-xl
+          className="h-10 flex-1 bg-primary text-secondary rounded-xl
+            drop-shadow-lg px-4 focus:outline-none placeholder:text-slate-500
+          dark:bg-darkPrimary dark:text-darkSecondary
+            dark: placeholder-slate-200 transition-colors duration-500"
+          type="text"
+          placeholder="Add a new task..."
+          spellCheck="true"
+        />
+        <input
+          value={body}
+          onChange={onChangeBody}
+          className="h-10 flex-1 bg-primary text-secondary rounded-xl
           drop-shadow-lg px-4 focus:outline-none placeholder:text-slate-500
         dark:bg-darkPrimary dark:text-darkSecondary
           dark: placeholder-slate-200 transition-colors duration-500"
@@ -46,10 +63,10 @@ const Header: React.FC<HeaderProps> = ({ onAddTask }) => {
           spellCheck="true"
         />
         <button
-          className="h-full px-4 text-secondary rounded-r-xl font-bold flex
-        bg-primary place-items-center gap-1 drop-shadow-lg active:opacity-70
-        dark:text-darkSecondary dark:bg-[#313e52] transition-colors
-          duration-500"
+          className="h-10 px-4 text-secondary rounded-xl font-bold flex
+          bg-primary place-items-center gap-1 drop-shadow-lg active:opacity-70
+          dark:text-darkSecondary dark:bg-[#313e52] transition-colors
+            duration-500"
         >
           Add
         </button>

@@ -9,6 +9,7 @@ const LOCAL_STORAGE_KEY = "nemodo:savedTasks";
 export interface iTask {
   id: string;
   title: string;
+  body: string;
   isComplete: boolean;
 }
 
@@ -29,12 +30,13 @@ const App: React.FC = () => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
   }
 
-  function addTask(taskTitle: string) {
+  function addTask(taskTitle: string, taskBody: string) {
     setTasksAndSave([
       ...tasks,
       {
         id: nanoid(),
         title: taskTitle,
+        body: taskBody,
         isComplete: false,
       },
     ]);

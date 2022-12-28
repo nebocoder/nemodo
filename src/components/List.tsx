@@ -102,11 +102,14 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onRemove }) => {
       </button>
       <p
         className={
-          task.isComplete ? "mr-auto line-through text-slate-400" : "mr-auto"
+          task.isComplete
+            ? "mr-auto line-through text-slate-400 text-lg font-bold"
+            : "mr-auto text-lg font-bold"
         }
       >
         {task.title}
       </p>
+      <p>{task.body}</p>
       <button
         onClick={() => onRemove(task.id)}
         className="active:text-red-600 transition-colors
