@@ -24,7 +24,7 @@ const List: React.FC<ListProps> = ({
   const [list] = useAutoAnimate<HTMLDivElement>();
 
   return (
-    <div className="w-full max-w-3xl mx-auto mt-20 mb-32 px-4">
+    <div className="w-full max-w-3xl mx-auto mt-12 mb-32 px-4">
       <div className="flex place-items-center place-content-between mb-6">
         <div className="flex place-items-center gap-2">
           <button
@@ -55,7 +55,7 @@ const List: React.FC<ListProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-col gap-4" ref={list}>
+      <div className="flex flex-col gap-4 md:grid md:grid-cols-2" ref={list}>
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -80,37 +80,50 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onRemove }) => {
 
   return (
     <div
-      className="w-full rounded-xl drop-shadow-lg bg-primary text-secondary
-      p-4 flex place-items-center justify-between gap-3 break-all
+      className="w-full min-h-[150px] rounded-xl drop-shadow-lg bg-primary text-secondary
+      p-4 flex flex-col justify-between gap-3 break-all
     dark:bg-darkPrimary dark:text-darkSecondary transition-colors
       duration-500"
     >
-      <button
-        ref={check}
-        onClick={() => onComplete(task.id)}
-        className="w-5 h-5 flex place-content-center place-items-center 
-      text-accent"
-      >
-        {task.isComplete ? (
-          <AiFillCheckCircle size={20} />
-        ) : (
-          <div
-            className="w-5 h-5 border-2 rounded-full border-secondary
-          dark:border-darkSecondary transition-colors duration-500"
-          />
-        )}
-      </button>
-      <p
-        className={
-          task.isComplete ? "mr-auto line-through text-slate-400" : "mr-auto"
-        }
-      >
-        {task.title}
-      </p>
+      <div>
+        <div className="flex place-items-center gap-2 pl-1 mb-3">
+          <button
+            ref={check}
+            onClick={() => onComplete(task.id)}
+            className="w-5 h-5 flex place-content-center place-items-center
+          text-accent"
+          >
+            {task.isComplete ? (
+              <AiFillCheckCircle size={20} />
+            ) : (
+              <div
+                className="w-5 h-5 border-2 rounded-full border-secondary
+              dark:border-darkSecondary transition-colors duration-500"
+              />
+            )}
+          </button>
+          <p
+            className={
+              task.isComplete
+                ? "mr-auto line-through text-slate-400 text-lg font-bold"
+                : "mr-auto text-lg font-bold"
+            }
+          >
+            {task.title}
+          </p>
+        </div>
+        <p
+          className={
+            task.isComplete ? "line-through text-slate-400 pl-1" : "pl-1"
+          }
+        >
+          {task.body}
+        </p>
+      </div>
       <button
         onClick={() => onRemove(task.id)}
-        className="active:text-red-600 transition-colors
-        duration-500"
+        className="active:text-red-600 transition-colors w-auto
+        duration-500 self-end"
       >
         <TbTrash size={20} />
       </button>
