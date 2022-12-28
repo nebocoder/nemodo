@@ -80,7 +80,7 @@ const Task: React.FC<TaskProps> = ({ task, onComplete, onRemove }) => {
 
   return (
     <div
-      className="w-full rounded-xl drop-shadow-lg bg-primary text-secondary
+      className="w-full min-h-[150px] rounded-xl drop-shadow-lg bg-primary text-secondary
       p-4 flex flex-col justify-between gap-3 break-all
     dark:bg-darkPrimary dark:text-darkSecondary transition-colors
       duration-500"
